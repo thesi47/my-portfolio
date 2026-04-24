@@ -1,103 +1,145 @@
+import { motion } from 'framer-motion'
+import { FadeIn, StaggerChildren, fadeUpVariant } from '../components/Motion'
+import data from '../data/portfolioData.json'
+
+/* Single-color palette: blue at different opacities */
+const levelStyles = {
+  Comfortable: 'bg-blue-100 text-blue-700 border-blue-200 dark:bg-blue-500/15 dark:text-blue-300 dark:border-blue-500/25',
+  Learning:    'bg-blue-50 text-blue-600 border-blue-100 dark:bg-blue-500/10 dark:text-blue-400 dark:border-blue-500/15',
+  Beginner:    'bg-gray-100 text-gray-500 border-gray-200 dark:bg-blue-500/5 dark:text-blue-400/70 dark:border-blue-500/10',
+}
+
 export default function About() {
-  const learning = [
-    'React',
-    'JavaScript (ES6+)',
-    'Tailwind CSS',
-    'Node.js',
-    'Git & GitHub',
-    'Responsive Design',
-  ]
+  const { about, currentlyLearning, quickFacts, skills } = data
 
   return (
     <section className="mx-auto max-w-6xl px-6 py-24">
 
       {/* ── Header ── */}
-      <span className="text-sm font-semibold uppercase tracking-widest text-indigo-400">
-        About Me
-      </span>
-      <h1 className="mt-3 text-4xl font-bold leading-tight text-white sm:text-5xl">
-        A little bit about who I am
-      </h1>
+      <FadeIn>
+        <span className="section-label">About Me</span>
+        <h1 className="section-title">A little bit about who I am</h1>
+      </FadeIn>
 
-      {/* ── Two-column layout on desktop ── */}
+      {/* ── Two-column layout ── */}
       <div className="mt-14 grid gap-16 lg:grid-cols-5">
 
-        {/* ── Story — takes 3 columns ── */}
-        <div className="space-y-6 lg:col-span-3">
-
-          {/* My Story */}
-          <div>
-            <h2 className="text-lg font-semibold text-white">My Story</h2>
-            <p className="mt-3 leading-relaxed text-gray-400">
-              I'm a Computer Science & Engineering student who got curious about
-              how websites work — and that curiosity quickly turned into a
-              passion. What started with writing simple HTML pages has evolved
-              into building full interactive interfaces with React and Tailwind.
+        {/* ── Story ── */}
+        <StaggerChildren stagger={0.1} delay={0.15} className="space-y-8 lg:col-span-3">
+          <motion.div variants={fadeUpVariant}>
+            <h2 className="text-lg font-semibold text-gray-900 dark:text-white">My Story</h2>
+            <p className="mt-3 leading-relaxed text-gray-500 dark:text-gray-400">
+              {about.story}
             </p>
-          </div>
+          </motion.div>
 
-          {/* What I'm Learning */}
-          <div>
-            <h2 className="text-lg font-semibold text-white">What I'm Learning</h2>
-            <p className="mt-3 leading-relaxed text-gray-400">
-              Right now I'm focused on front-end development — understanding how
-              to structure components, manage state, and create designs that feel
-              clean and intuitive. I'm also picking up the basics of back-end
-              development so I can eventually build full-stack applications.
+          <motion.div variants={fadeUpVariant}>
+            <h2 className="text-lg font-semibold text-gray-900 dark:text-white">What I'm Learning</h2>
+            <p className="mt-3 leading-relaxed text-gray-500 dark:text-gray-400">
+              {about.learning}
             </p>
-          </div>
+          </motion.div>
 
-          {/* My Goal */}
-          <div>
-            <h2 className="text-lg font-semibold text-white">My Goal</h2>
-            <p className="mt-3 leading-relaxed text-gray-400">
-              I want to become a developer who writes thoughtful, well-crafted
-              code — someone who doesn't just make things work, but makes them
-              work well. I'm not in a rush. I'd rather learn things properly and
-              build a strong foundation that lasts.
+          <motion.div variants={fadeUpVariant}>
+            <h2 className="text-lg font-semibold text-gray-900 dark:text-white">My Goal</h2>
+            <p className="mt-3 leading-relaxed text-gray-500 dark:text-gray-400">
+              {about.goal}
             </p>
-          </div>
-        </div>
+          </motion.div>
+        </StaggerChildren>
 
-        {/* ── Sidebar — takes 2 columns ── */}
-        <div className="space-y-10 lg:col-span-2">
-
-          {/* Currently Learning */}
-          <div className="rounded-xl border border-white/5 bg-white/[0.02] p-6">
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-300">
+        {/* ── Sidebar ── */}
+        <StaggerChildren stagger={0.15} delay={0.3} className="space-y-8 lg:col-span-2">
+          <motion.div variants={fadeUpVariant} className="card">
+            <h3 className="text-sm font-semibold uppercase tracking-wider
+              text-gray-600 dark:text-gray-300">
               Currently Learning
             </h3>
             <ul className="mt-4 space-y-3">
-              {learning.map((item) => (
-                <li key={item} className="flex items-center gap-3 text-sm text-gray-400">
-                  <span className="h-1.5 w-1.5 rounded-full bg-indigo-500 shrink-0" />
+              {currentlyLearning.map((item) => (
+                <li key={item} className="flex items-center gap-3 text-sm
+                  text-gray-500 dark:text-gray-400">
+                  <span className="h-1.5 w-1.5 rounded-full shrink-0
+                    bg-blue-600 dark:bg-blue-500" />
                   {item}
                 </li>
               ))}
             </ul>
-          </div>
+          </motion.div>
 
-          {/* Quick facts */}
-          <div className="rounded-xl border border-white/5 bg-white/[0.02] p-6">
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-300">
+          <motion.div variants={fadeUpVariant} className="card">
+            <h3 className="text-sm font-semibold uppercase tracking-wider
+              text-gray-600 dark:text-gray-300">
               Quick Facts
             </h3>
             <dl className="mt-4 space-y-4">
-              <div>
-                <dt className="text-xs uppercase tracking-wider text-gray-500">Education</dt>
-                <dd className="mt-1 text-sm text-gray-300">B.Sc. in CSE (ongoing)</dd>
-              </div>
-              <div>
-                <dt className="text-xs uppercase tracking-wider text-gray-500">Focus</dt>
-                <dd className="mt-1 text-sm text-gray-300">Front-End Development</dd>
-              </div>
-              <div>
-                <dt className="text-xs uppercase tracking-wider text-gray-500">Interests</dt>
-                <dd className="mt-1 text-sm text-gray-300">UI Design, Open Source, Problem Solving</dd>
-              </div>
+              {quickFacts.map((fact) => (
+                <div key={fact.label}>
+                  <dt className="text-xs uppercase tracking-wider
+                    text-gray-400 dark:text-gray-500">
+                    {fact.label}
+                  </dt>
+                  <dd className="mt-1 text-sm text-gray-700 dark:text-gray-300">
+                    {fact.value}
+                  </dd>
+                </div>
+              ))}
             </dl>
+          </motion.div>
+        </StaggerChildren>
+      </div>
+
+      {/* ── Skills Section ── */}
+      <div className="mt-24 border-t pt-20
+        border-gray-200 dark:border-white/5">
+
+        <FadeIn>
+          <span className="section-label">Skills</span>
+          <h2 className="mt-3 text-3xl font-bold sm:text-4xl
+            text-gray-900 dark:text-white">
+            What I work with
+          </h2>
+          <p className="section-desc">
+            I'm still learning — these reflect where I honestly am right now,
+            not where I want to be.
+          </p>
+        </FadeIn>
+
+        {/* ── Level legend ── */}
+        <FadeIn delay={0.15}>
+          <div className="mt-8 flex flex-wrap gap-3">
+            {Object.entries(levelStyles).map(([level, classes]) => (
+              <span
+                key={level}
+                className={`rounded-full border px-3 py-1 text-xs font-medium ${classes}`}
+              >
+                {level}
+              </span>
+            ))}
           </div>
-        </div>
+        </FadeIn>
+
+        {/* ── Skill category cards ── */}
+        <StaggerChildren stagger={0.1} delay={0.25} className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {skills.map((category) => (
+            <motion.div key={category.category} variants={fadeUpVariant} className="card">
+              <h3 className="text-sm font-semibold uppercase tracking-wider
+                text-gray-600 dark:text-gray-300">
+                {category.category}
+              </h3>
+              <div className="mt-5 flex flex-wrap gap-2">
+                {category.items.map((skill) => (
+                  <span
+                    key={skill.name}
+                    className={`rounded-full border px-3 py-1.5 text-sm font-medium ${levelStyles[skill.level]}`}
+                  >
+                    {skill.name}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+          ))}
+        </StaggerChildren>
       </div>
     </section>
   )

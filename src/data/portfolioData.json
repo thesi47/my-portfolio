@@ -1,0 +1,97 @@
+{
+  "personal": {
+    "name": "Your Name",
+    "title": "CSE Student & Frontend Developer",
+    "tagline": "A CSE student passionate about learning web development — building clean, user-friendly interfaces one project at a time.",
+    "greeting": "Welcome to my portfolio",
+    "location": "Bangladesh",
+    "email": "your@email.com"
+  },
+
+  "stats": [
+    { "value": "5+", "label": "Projects" },
+    { "value": "3+", "label": "Tech Stack" },
+    { "value": "1+", "label": "Years Learning" }
+  ],
+
+  "about": {
+    "story": "I'm a Computer Science & Engineering student who got curious about how websites work — and that curiosity quickly turned into a passion. What started with writing simple HTML pages has evolved into building full interactive interfaces with React and Tailwind.",
+    "learning": "Right now I'm focused on front-end development — understanding how to structure components, manage state, and create designs that feel clean and intuitive. I'm also picking up the basics of back-end development so I can eventually build full-stack applications.",
+    "goal": "I want to become a developer who writes thoughtful, well-crafted code — someone who doesn't just make things work, but makes them work well. I'm not in a rush. I'd rather learn things properly and build a strong foundation that lasts."
+  },
+
+  "currentlyLearning": [
+    "React",
+    "JavaScript (ES6+)",
+    "Tailwind CSS",
+    "Node.js",
+    "Git & GitHub",
+    "Responsive Design"
+  ],
+
+  "quickFacts": [
+    { "label": "Education", "value": "B.Sc. in CSE (ongoing)" },
+    { "label": "Focus", "value": "Front-End Development" },
+    { "label": "Interests", "value": "UI Design, Open Source, Problem Solving" }
+  ],
+
+  "skills": [
+    {
+      "category": "Frontend",
+      "items": [
+        { "name": "HTML", "level": "Comfortable" },
+        { "name": "CSS", "level": "Comfortable" },
+        { "name": "JavaScript", "level": "Learning" },
+        { "name": "React", "level": "Learning" },
+        { "name": "Tailwind CSS", "level": "Learning" }
+      ]
+    },
+    {
+      "category": "Tools",
+      "items": [
+        { "name": "Git & GitHub", "level": "Comfortable" },
+        { "name": "VS Code", "level": "Comfortable" },
+        { "name": "npm", "level": "Learning" },
+        { "name": "Vite", "level": "Learning" }
+      ]
+    },
+    {
+      "category": "Exploring",
+      "items": [
+        { "name": "Node.js", "level": "Beginner" },
+        { "name": "Express", "level": "Beginner" },
+        { "name": "REST APIs", "level": "Beginner" }
+      ]
+    }
+  ],
+
+  "projects": [
+    {
+      "title": "Portfolio Website",
+      "description": "A personal portfolio built with React and Tailwind CSS to showcase projects, skills, and experience. Features responsive design and clean UI.",
+      "tech": ["React", "Tailwind CSS", "React Router"],
+      "github": "https://github.com/yourusername/portfolio",
+      "live": "https://yourportfolio.vercel.app"
+    },
+    {
+      "title": "Task Manager App",
+      "description": "A simple task management application with add, edit, delete, and filter functionality. Data persists in local storage.",
+      "tech": ["JavaScript", "HTML", "CSS"],
+      "github": "https://github.com/yourusername/task-manager",
+      "live": null
+    },
+    {
+      "title": "Weather Dashboard",
+      "description": "A weather app that fetches real-time data from an API and displays current conditions, forecasts, and location-based results.",
+      "tech": ["React", "REST API", "Tailwind CSS"],
+      "github": "https://github.com/yourusername/weather-app",
+      "live": "https://weather-app-demo.vercel.app"
+    }
+  ],
+
+  "social": [
+    { "label": "GitHub", "url": "https://github.com" },
+    { "label": "LinkedIn", "url": "https://linkedin.com" },
+    { "label": "Twitter", "url": "https://twitter.com" }
+  ]
+}
