@@ -1,11 +1,12 @@
 {
   "personal": {
-    "name": "Your Name",
+    "name": "Shawon Islam",
     "title": "CSE Student & Frontend Developer",
     "tagline": "A CSE student passionate about learning web development — building clean, user-friendly interfaces one project at a time.",
     "greeting": "Welcome to my portfolio",
     "location": "Bangladesh",
-    "email": "your@email.com"
+    "email": "shawonislam312001@gmail.com",
+    "phone": "+880 1518-789991"
   },
 
   "stats": [
@@ -70,15 +71,15 @@
       "title": "Portfolio Website",
       "description": "A personal portfolio built with React and Tailwind CSS to showcase projects, skills, and experience. Features responsive design and clean UI.",
       "tech": ["React", "Tailwind CSS", "React Router"],
-      "github": "https://github.com/yourusername/portfolio",
-      "live": "https://yourportfolio.vercel.app"
+      "github": "https://github.com/thesi47/my-portfolio",
+      "live": "https://shawon-portfolio-three.vercel.app/"
     },
     {
-      "title": "Task Manager App",
-      "description": "A simple task management application with add, edit, delete, and filter functionality. Data persists in local storage.",
+      "title": "Restaurant Finder App",
+      "description": "A simple restaurant finder application with search and filter functionality. Data persists in local storage.",
       "tech": ["JavaScript", "HTML", "CSS"],
-      "github": "https://github.com/yourusername/task-manager",
-      "live": null
+      "github": "https://github.com/thesi47/fastfood-with-react",
+      "live": "https://fastfood-with-react.vercel.app/"
     },
     {
       "title": "Weather Dashboard",
@@ -90,8 +91,8 @@
   ],
 
   "social": [
-    { "label": "GitHub", "url": "https://github.com" },
-    { "label": "LinkedIn", "url": "https://linkedin.com" },
-    { "label": "Twitter", "url": "https://twitter.com" }
+    { "label": "GitHub", "url": "https://github.com/thesi47" },
+    { "label": "LinkedIn", "url": "https://www.linkedin.com/in/thesi47/" },
+    { "label": "Twitter", "url": "https://twitter.com/thesi47" }
   ]
 }
