@@ -77,3 +77,63 @@ export const fadeUpVariant = {
     transition: { duration: 0.4, ease: 'easeOut' },
   },
 }
+
+/*
+ * ScrollFadeIn — like FadeIn, but triggers when the element
+ * scrolls into the viewport instead of on mount.
+ *
+ * Props: same as FadeIn
+ */
+export function ScrollFadeIn({
+  children,
+  delay = 0,
+  duration = 0.5,
+  y = 24,
+  className = '',
+  ...props
+}) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-60px' }}
+      transition={{ duration, delay, ease: 'easeOut' }}
+      className={className}
+      {...props}
+    >
+      {children}
+    </motion.div>
+  )
+}
+
+/*
+ * ScrollStagger — like StaggerChildren, but triggers on scroll.
+ */
+export function ScrollStagger({
+  children,
+  stagger = 0.1,
+  delay = 0,
+  className = '',
+  ...props
+}) {
+  return (
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: '-60px' }}
+      variants={{
+        hidden: {},
+        visible: {
+          transition: {
+            staggerChildren: stagger,
+            delayChildren: delay,
+          },
+        },
+      }}
+      className={className}
+      {...props}
+    >
+      {children}
+    </motion.div>
+  )
+}

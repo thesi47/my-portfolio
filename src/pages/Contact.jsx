@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { FadeIn, StaggerChildren, fadeUpVariant } from '../components/Motion'
+import { FadeIn, ScrollFadeIn, ScrollStagger, fadeUpVariant } from '../components/Motion'
 import data from '../data/portfolioData.json'
 
 const initialForm = { name: '', email: '', message: '' }
@@ -62,7 +62,7 @@ export default function Contact() {
   const inputErr = 'border-red-300 focus:border-red-500 focus:ring-red-500 dark:border-red-500/50 dark:focus:border-red-500 dark:focus:ring-red-500'
 
   return (
-    <section className="mx-auto max-w-6xl px-6 py-24">
+    <section className="mx-auto max-w-6xl px-6 py-20">
 
       {/* ── Header ── */}
       <FadeIn>
@@ -74,10 +74,10 @@ export default function Contact() {
         </p>
       </FadeIn>
 
-      <div className="mt-14 grid gap-16 lg:grid-cols-5">
+      <div className="mt-14 grid gap-8 lg:grid-cols-5">
 
         {/* ── Form ── */}
-        <FadeIn delay={0.15} className="lg:col-span-3">
+        <ScrollFadeIn className="lg:col-span-3">
           {submitted ? (
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
@@ -94,7 +94,7 @@ export default function Contact() {
               <h2 className="mt-5 text-xl font-semibold text-gray-900 dark:text-white">
                 Message sent!
               </h2>
-              <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">
+              <p className="mt-2 text-base leading-relaxed text-gray-500 dark:text-gray-400">
                 Thanks for reaching out. I'll get back to you as soon as I can.
               </p>
               <button onClick={handleReset} className="btn-ghost mt-6">
@@ -153,17 +153,17 @@ export default function Contact() {
               </button>
             </form>
           )}
-        </FadeIn>
+        </ScrollFadeIn>
 
         {/* ── Sidebar ── */}
-        <StaggerChildren stagger={0.12} delay={0.3} className="space-y-8 lg:col-span-2">
+        <ScrollStagger stagger={0.12} className="space-y-8 lg:col-span-2">
           <motion.div variants={fadeUpVariant} className="card">
             <h3 className="text-sm font-semibold uppercase tracking-wider
               text-gray-600 dark:text-gray-300">
               Email
             </h3>
             <a href={`mailto:${personal.email}`}
-              className="mt-3 block text-sm text-blue-600 dark:text-blue-400
+              className="mt-3 block text-base text-blue-600 dark:text-blue-400
                 hover:text-blue-700 dark:hover:text-blue-300">
               {personal.email}
             </a>
@@ -174,7 +174,7 @@ export default function Contact() {
               text-gray-600 dark:text-gray-300">
               Location
             </h3>
-            <p className="mt-3 text-sm text-gray-500 dark:text-gray-400">
+            <p className="mt-3 text-base text-gray-500 dark:text-gray-400">
               {personal.location}
             </p>
           </motion.div>
@@ -187,14 +187,14 @@ export default function Contact() {
             <div className="mt-3 flex gap-4">
               {social.map(({ label, url }) => (
                 <a key={label} href={url} target="_blank" rel="noopener noreferrer"
-                  className="text-sm text-gray-500 dark:text-gray-400
+                  className="text-base text-gray-500 dark:text-gray-400
                     hover:text-gray-900 dark:hover:text-white">
                   {label}
                 </a>
               ))}
             </div>
           </motion.div>
-        </StaggerChildren>
+        </ScrollStagger>
       </div>
     </section>
   )

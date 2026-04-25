@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { FadeIn, StaggerChildren, fadeUpVariant } from '../components/Motion'
+import { FadeIn, ScrollFadeIn, ScrollStagger, fadeUpVariant } from '../components/Motion'
 import data from '../data/portfolioData.json'
 
 /* Single-color palette: blue at different opacities */
@@ -13,7 +13,7 @@ export default function About() {
   const { about, currentlyLearning, quickFacts, skills } = data
 
   return (
-    <section className="mx-auto max-w-6xl px-6 py-24">
+    <section className="mx-auto max-w-6xl px-6 py-20">
 
       {/* ── Header ── */}
       <FadeIn>
@@ -22,34 +22,34 @@ export default function About() {
       </FadeIn>
 
       {/* ── Two-column layout ── */}
-      <div className="mt-14 grid gap-16 lg:grid-cols-5">
+      <div className="mt-14 grid gap-8 lg:grid-cols-5">
 
         {/* ── Story ── */}
-        <StaggerChildren stagger={0.1} delay={0.15} className="space-y-8 lg:col-span-3">
+        <ScrollStagger stagger={0.1} className="space-y-8 lg:col-span-3">
           <motion.div variants={fadeUpVariant}>
             <h2 className="text-lg font-semibold text-gray-900 dark:text-white">My Story</h2>
-            <p className="mt-3 leading-relaxed text-gray-500 dark:text-gray-400">
+            <p className="mt-3 text-base leading-relaxed text-gray-500 dark:text-gray-400">
               {about.story}
             </p>
           </motion.div>
 
           <motion.div variants={fadeUpVariant}>
             <h2 className="text-lg font-semibold text-gray-900 dark:text-white">What I'm Learning</h2>
-            <p className="mt-3 leading-relaxed text-gray-500 dark:text-gray-400">
+            <p className="mt-3 text-base leading-relaxed text-gray-500 dark:text-gray-400">
               {about.learning}
             </p>
           </motion.div>
 
           <motion.div variants={fadeUpVariant}>
             <h2 className="text-lg font-semibold text-gray-900 dark:text-white">My Goal</h2>
-            <p className="mt-3 leading-relaxed text-gray-500 dark:text-gray-400">
+            <p className="mt-3 text-base leading-relaxed text-gray-500 dark:text-gray-400">
               {about.goal}
             </p>
           </motion.div>
-        </StaggerChildren>
+        </ScrollStagger>
 
         {/* ── Sidebar ── */}
-        <StaggerChildren stagger={0.15} delay={0.3} className="space-y-8 lg:col-span-2">
+        <ScrollStagger stagger={0.15} className="space-y-8 lg:col-span-2">
           <motion.div variants={fadeUpVariant} className="card">
             <h3 className="text-sm font-semibold uppercase tracking-wider
               text-gray-600 dark:text-gray-300">
@@ -57,7 +57,7 @@ export default function About() {
             </h3>
             <ul className="mt-4 space-y-3">
               {currentlyLearning.map((item) => (
-                <li key={item} className="flex items-center gap-3 text-sm
+                <li key={item} className="flex items-center gap-3 text-base
                   text-gray-500 dark:text-gray-400">
                   <span className="h-1.5 w-1.5 rounded-full shrink-0
                     bg-blue-600 dark:bg-blue-500" />
@@ -79,34 +79,33 @@ export default function About() {
                     text-gray-400 dark:text-gray-500">
                     {fact.label}
                   </dt>
-                  <dd className="mt-1 text-sm text-gray-700 dark:text-gray-300">
+                  <dd className="mt-1 text-base text-gray-700 dark:text-gray-300">
                     {fact.value}
                   </dd>
                 </div>
               ))}
             </dl>
           </motion.div>
-        </StaggerChildren>
+        </ScrollStagger>
       </div>
 
       {/* ── Skills Section ── */}
-      <div className="mt-24 border-t pt-20
+      <div className="mt-20 -mx-6 px-6 py-20 section-alt border-t
         border-gray-200 dark:border-white/5">
 
-        <FadeIn>
+        <ScrollFadeIn>
           <span className="section-label">Skills</span>
-          <h2 className="mt-3 text-3xl font-bold sm:text-4xl
-            text-gray-900 dark:text-white">
+          <h2 className="section-title">
             What I work with
           </h2>
           <p className="section-desc">
             I'm still learning — these reflect where I honestly am right now,
             not where I want to be.
           </p>
-        </FadeIn>
+        </ScrollFadeIn>
 
         {/* ── Level legend ── */}
-        <FadeIn delay={0.15}>
+        <ScrollFadeIn delay={0.1}>
           <div className="mt-8 flex flex-wrap gap-3">
             {Object.entries(levelStyles).map(([level, classes]) => (
               <span
@@ -117,10 +116,10 @@ export default function About() {
               </span>
             ))}
           </div>
-        </FadeIn>
+        </ScrollFadeIn>
 
         {/* ── Skill category cards ── */}
-        <StaggerChildren stagger={0.1} delay={0.25} className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <ScrollStagger stagger={0.1} className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {skills.map((category) => (
             <motion.div key={category.category} variants={fadeUpVariant} className="card">
               <h3 className="text-sm font-semibold uppercase tracking-wider
@@ -139,7 +138,7 @@ export default function About() {
               </div>
             </motion.div>
           ))}
-        </StaggerChildren>
+        </ScrollStagger>
       </div>
     </section>
   )

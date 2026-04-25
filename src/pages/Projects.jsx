@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { FadeIn, StaggerChildren, fadeUpVariant } from '../components/Motion'
+import { FadeIn, ScrollStagger, fadeUpVariant } from '../components/Motion'
 import data from '../data/portfolioData.json'
 
 function GithubIcon() {
@@ -22,7 +22,8 @@ export default function Projects() {
   const { projects } = data
 
   return (
-    <section className="mx-auto max-w-6xl px-6 py-24">
+    <section className="section-alt">
+      <div className="mx-auto max-w-6xl px-6 py-20">
 
       {/* ── Header ── */}
       <FadeIn>
@@ -35,65 +36,96 @@ export default function Projects() {
       </FadeIn>
 
       {/* ── Project Cards Grid ── */}
-      <StaggerChildren stagger={0.12} delay={0.2} className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <ScrollStagger stagger={0.12} className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
         {projects.map((project) => (
           <motion.article
             key={project.title}
             variants={fadeUpVariant}
-            className="card group flex flex-col p-0!"
+            className="group flex flex-col overflow-hidden rounded-xl border
+              border-gray-200 bg-white
+              dark:border-white/5 dark:bg-gray-900
+              transition-all duration-300 ease-out
+              hover:scale-[1.02] hover:shadow-xl hover:shadow-blue-600/5
+              dark:hover:shadow-blue-500/5
+              hover:border-blue-200 dark:hover:border-blue-500/15"
           >
+            {/* ── Project image ── */}
+            <div className="relative overflow-hidden">
+              <img
+                src={project.image}
+                alt={project.title}
+                className="h-48 w-full object-cover transition-transform duration-500 ease-out
+                  group-hover:scale-105"
+              />
+              {/* Subtle overlay on hover */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent
+                opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+            </div>
+
+            {/* ── Card body ── */}
             <div className="flex flex-1 flex-col p-6">
 
-              {/* Title row */}
-              <div className="flex items-start justify-between gap-3">
-                <h2 className="text-lg font-semibold
-                  text-gray-900 dark:text-white
-                  group-hover:text-blue-600 dark:group-hover:text-blue-400">
-                  {project.title}
-                </h2>
-
-                <div className="flex shrink-0 items-center gap-3">
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`${project.title} GitHub repository`}
-                    className="text-gray-400 dark:text-gray-500
-                      hover:text-gray-900 dark:hover:text-white"
-                  >
-                    <GithubIcon />
-                  </a>
-                  {project.live && (
-                    <a
-                      href={project.live}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={`${project.title} live demo`}
-                      className="text-gray-400 dark:text-gray-500
-                        hover:text-gray-900 dark:hover:text-white"
-                    >
-                      <ExternalIcon />
-                    </a>
-                  )}
-                </div>
-              </div>
+              {/* Title */}
+              <h2 className="text-lg font-semibold
+                text-gray-900 dark:text-white
+                transition-colors duration-200
+                group-hover:text-blue-600 dark:group-hover:text-blue-400">
+                {project.title}
+              </h2>
 
               {/* Description */}
-              <p className="mt-3 flex-1 text-sm leading-relaxed
+              <p className="mt-3 flex-1 text-base leading-relaxed
                 text-gray-500 dark:text-gray-400">
                 {project.description}
               </p>
 
-              {/* Tech tags */}
+              {/* Tech badges */}
               <div className="mt-5 flex flex-wrap gap-2">
                 {project.tech.map((t) => (
                   <span key={t} className="tag">{t}</span>
                 ))}
               </div>
+
+              {/* Action buttons */}
+              <div className="mt-6 flex items-center gap-3 border-t pt-5
+                border-gray-100 dark:border-white/5">
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${project.title} GitHub repository`}
+                  className="inline-flex items-center gap-2 rounded-lg border px-4 py-2
+                    text-xs font-semibold transition-all duration-200
+                    border-gray-200 text-gray-600
+                    hover:border-gray-900 hover:text-gray-900
+                    dark:border-white/10 dark:text-gray-400
+                    dark:hover:border-white/30 dark:hover:text-white"
+                >
+                  <GithubIcon />
+                  GitHub
+                </a>
+                {project.live && (
+                  <a
+                    href={project.live}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${project.title} live demo`}
+                    className="inline-flex items-center gap-2 rounded-lg px-4 py-2
+                      text-xs font-semibold transition-all duration-200
+                      bg-blue-600 text-white
+                      hover:bg-blue-700 hover:shadow-md hover:shadow-blue-600/20
+                      dark:bg-blue-600 dark:hover:bg-blue-500 dark:hover:shadow-blue-500/20"
+                  >
+                    <ExternalIcon />
+                    Live Demo
+                  </a>
+                )}
+              </div>
             </div>
           </motion.article>
         ))}
-      </StaggerChildren>
+      </ScrollStagger>
+      </div>
     </section>
   )
 }
