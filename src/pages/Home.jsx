@@ -12,7 +12,7 @@ export default function Home() {
       <div
         aria-hidden="true"
         className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2
-          h-[480px] w-[720px] rounded-full blur-[120px]
+          h-120 w-180 rounded-full blur-[120px]
           bg-blue-600/5 dark:bg-blue-600/8"
       />
 
