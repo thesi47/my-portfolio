@@ -84,14 +84,6 @@
       "tech": ["JavaScript", "HTML", "CSS"],
       "github": "https://github.com/thesi47/fastfood-with-react",
       "live": "https://fastfood-with-react.vercel.app/"
-    },
-    {
-      "title": "Weather Dashboard",
-      "description": "A weather app that fetches real-time data from an API and displays current conditions, forecasts, and location-based results.",
-      "image": "/project-weather.png",
-      "tech": ["React", "REST API", "Tailwind CSS"],
-      "github": "https://github.com/yourusername/weather-app",
-      "live": "https://weather-app-demo.vercel.app"
     }
   ],
 

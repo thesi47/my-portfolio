@@ -83,9 +83,9 @@ export default function Home() {
 
           {/* ── Right column: profile image ── */}
           <FadeIn delay={0.2}>
-            <div className="relative flex-shrink-0">
+            <div className="relative shrink-0">
               {/* Decorative ring */}
-              <div className="absolute -inset-3 rounded-full bg-gradient-to-tr from-blue-600/20 to-blue-400/10 blur-lg dark:from-blue-500/15 dark:to-blue-400/5" />
+              <div className="absolute -inset-3 rounded-full bg-linear-to-tr from-blue-600/20 to-blue-400/10 blur-lg dark:from-blue-500/15 dark:to-blue-400/5" />
               <img
                 src={personal.avatar}
                 alt={personal.name}

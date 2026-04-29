@@ -124,6 +124,54 @@ export default function Projects() {
             </div>
           </motion.article>
         ))}
+
+        {/* ── Fallback placeholder cards ── */}
+        {Array.from({ length: Math.max(0, 3 - projects.length) }).map((_, i) => (
+          <motion.article
+            key={`placeholder-${i}`}
+            variants={fadeUpVariant}
+            className="group flex flex-col overflow-hidden rounded-xl border-2 border-dashed
+              border-gray-200 dark:border-white/10
+              transition-all duration-300 ease-out"
+          >
+            {/* ── Placeholder image area ── */}
+            <div className="relative flex h-48 items-center justify-center
+              bg-gray-50 dark:bg-white/2">
+              <div className="flex flex-col items-center gap-3 text-gray-300 dark:text-gray-600">
+                <svg className="h-10 w-10 animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                </svg>
+              </div>
+            </div>
+
+            {/* ── Placeholder body ── */}
+            <div className="flex flex-1 flex-col items-center justify-center p-6 text-center">
+              <p className="text-sm font-semibold uppercase tracking-wider
+                text-gray-400 dark:text-gray-500">
+                Coming Soon
+              </p>
+              <p className="mt-2 max-w-[200px] text-xs leading-relaxed
+                text-gray-300 dark:text-gray-600">
+                This spot is reserved for a project that's currently in the works.
+              </p>
+
+              {/* Placeholder tech badges */}
+              <div className="mt-5 flex gap-2">
+                <span className="rounded-full bg-gray-100 px-3 py-1 text-xs text-gray-300
+                  dark:bg-white/3 dark:text-gray-600">???</span>
+                <span className="rounded-full bg-gray-100 px-3 py-1 text-xs text-gray-300
+                  dark:bg-white/3 dark:text-gray-600">???</span>
+              </div>
+
+              {/* Placeholder footer to match height */}
+              <div className="mt-6 w-full border-t pt-5 border-gray-100 dark:border-white/5">
+                <p className="text-xs italic text-gray-300 dark:text-gray-600">
+                  Stay tuned ✦
+                </p>
+              </div>
+            </div>
+          </motion.article>
+        ))}
       </ScrollStagger>
       </div>
     </section>
