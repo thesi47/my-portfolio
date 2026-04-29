@@ -150,7 +150,7 @@ export default function Projects() {
                 text-gray-400 dark:text-gray-500">
                 Coming Soon
               </p>
-              <p className="mt-2 max-w-[200px] text-xs leading-relaxed
+              <p className="mt-2 max-w-50 text-xs leading-relaxed
                 text-gray-300 dark:text-gray-600">
                 This spot is reserved for a project that's currently in the works.
               </p>
